@@ -9,8 +9,8 @@
     --salmon-500: hsl(22, 99%, 72%);
     --salmon-100: hsl(22, 100%, 91%);
     --salmon-50: hsl(23, 100%, 97%);
-    --text-gradient: linear-gradient(107deg, #ff9a60 -11.73%, #062630 61.84%);
-    --gradient: linear-gradient(90deg, #ffe2D1 0%, #fff5ef 100%); 
+    --text-gradient: linear-gradient(107deg, var(--salmon-500) -11.73%, var(--neutral-900) 61.84%);
+    --gradient: linear-gradient(90deg, var(--salmon-100) 0%, var(--salmon-50) 100%); 
     --ff-primary: "Martian Mono", serif;
     --ff-accent: "Inter", sans-serif;
 }
@@ -43,6 +43,10 @@ a {
     text-decoration: none;
 }
 
+ul {
+    list-style-type: none;
+}
+
 img {
     display: block;
     max-width: 100%;
@@ -71,15 +75,16 @@ main {
 }
 
 .logo_wrapper img {
-    width: 19.1rem;
+    width: 100%;
+    max-width: 19.1rem;
     height: auto;
 }
 
 .page_title {
-    font-size: 3.8rem;
+    /* font-size: 3.8rem; */
+    font-size: clamp(3.8rem, 4vw + 1rem,6.2rem);
     line-height: 120%;
     letter-spacing: -2px;
-    /* background-image: linear-gradient(107deg, var(--salmon-500) -11.37%, var(--neutral-900) 62%); */
     background-image: var(--text-gradient);
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -161,12 +166,11 @@ main {
 }
 
 .link_dark:hover {
-    background-color: none;
+    background-color: transparent;
     background-image: var(--gradient);
 }
 
-.link_dark:focus,
-.btn_card:focus {
+.link_dark:focus {
     outline: 2px solid var(--neutral-700);
     outline-offset: 3px;
 }
@@ -400,7 +404,7 @@ main {
     border-top: 2px solid var(--neutral-200);
 }
 
-.includes p {
+.includes li {
     font-size: 2rem;
     line-height: 140%;
     color: var(--neutral-700);
@@ -410,7 +414,7 @@ main {
     gap: 1.2rem;
 }
 
-.includes p:not(:last-child) {
+.includes li:not(:last-child) {
     margin-bottom: 1.6rem;
 }
 
@@ -434,6 +438,11 @@ main {
 .btn_card:hover {
     background-color: none;
     background-image: var(--gradient);
+}
+
+.btn_card:focus {
+    outline: 2px solid var(--neutral-700);
+    outline-offset: 3px;
 }
 
 .membership_card.pro_card {
@@ -557,7 +566,7 @@ main {
 }
 
 /* Media queries */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48rem) {
     .content_container {
         width: 90vw;
     }
@@ -593,8 +602,8 @@ main {
     }
 
     .page_title {
-        font-size: 6.2rem;
-        margin-bottom: 2.4rem;
+        /* font-size: 6.2rem; */
+        /* margin-bottom: 2.4rem; */
         max-width: 15ch;
     }
 
@@ -701,7 +710,7 @@ main {
     }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 90rem) {
     .cta_section::after {
         background-position: 0 0;
         background-size: 100%;
@@ -786,9 +795,9 @@ main {
         align-items: center;
     }
 
-    .num_wrapper img {
+    /* .num_wrapper img {
         display: block;
-    }
+    } */
 
     .instruction .i_text {
         max-width: 18ch;
